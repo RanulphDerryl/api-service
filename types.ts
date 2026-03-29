@@ -8,11 +8,7 @@ export type Context = {
 
 export type LoginResponse = {
   token: string;
-  user: {
-    id: number;
-    email: string;
-    name: string;
-  };
+  user: User;
 };
 
 export type User = {
@@ -23,8 +19,10 @@ export type User = {
 
 export type CreateUserData = Omit<User, 'id'> & {
   password: string;
+  confirmPassword: string;
 };
 
 export type UpdateUserData = Partial<Omit<User, 'id'>> & {
   password?: string;
+  confirmPassword?: string;
 };
